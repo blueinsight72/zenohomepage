@@ -175,13 +175,12 @@ const ogImageUrl = new URL(SITE.ogImage, SITE.url).href;
         famBtn.setAttribute('aria-expanded', 'false');
       });
 
-      /* 배경 영상 : 모바일·절전·저속 환경에서는 생략 (파일이 21MB 입니다) */
+      /* 배경 영상 : 모션 최소화·데이터 절약·저속 회선에서는 생략 */
       var v = document.querySelector('.bg-video');
       var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
       var conn = navigator.connection;
       var slow = conn && (conn.saveData || /(^|-)(2g|3g)$/.test(conn.effectiveType || ''));
-      var narrow = window.innerWidth < 768;
-      if (v && !reduce && !slow && !narrow) {
+      if (v && !reduce && !slow) {
         v.preload = 'auto';
         var p = v.play();
         if (p && p.catch) p.catch(function () {});

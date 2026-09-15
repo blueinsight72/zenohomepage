@@ -148,5 +148,24 @@ AI 검색이 사이트를 요약할 때 가장 먼저 읽는 파일입니다.
 - [ ] 제품 화면 스크린샷 (현재 플레이스홀더)
 - [ ] 도입 사례 3건 실제 내용 (현재 "내용 대기")
 - [ ] 고객사 로고
-- [ ] OG 이미지를 자체 호스팅으로 교체 (현재 framerusercontent.com 참조)
-- [ ] 배경 영상을 자체 호스팅으로 교체 (현재 framerusercontent.com 참조)
+- [ ] 원본 영상 확보 시 동일 설정으로 재인코딩 (현재는 Framer CDN본을 재압축한 것이라 2세대 손실)
+
+## 배경 영상 관리
+
+`public/assets/zeno-bg.mp4` — 1280×720, 15초, 1.8MB, 무음.
+
+Framer 원본은 11.3Mbps에 오디오 트랙까지 붙은 21MB였습니다. 배경 영상은
+`opacity: .5`로 네이비 베일 뒤에 깔려서 압축 차이가 보이지 않습니다.
+실제 표시 조건에서 SSIM을 재보면 CRF 30(1.8MB)과 CRF 24(5.2MB)가
+0.9016 대 0.9017로 사실상 같아, 용량을 더 쓸 이유가 없습니다.
+
+교체할 때는 같은 설정을 쓰세요.
+
+```bash
+ffmpeg -i 원본.mp4 -an -c:v libx264 -crf 30 -preset slow \
+  -pix_fmt yuv420p -movflags +faststart public/assets/zeno-bg.mp4
+```
+
+- `-an` : 오디오 제거 (muted 재생이라 불필요)
+- `-movflags +faststart` : 다운로드 중 재생 시작
+- 해상도는 720p 유지 (`object-fit: cover`라 더 낮추면 큰 화면에서 뭉갬)
