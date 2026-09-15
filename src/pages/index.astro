@@ -21,7 +21,7 @@ const keywords =
         <p class="lead">간접구매와 판관비를 하나로 모으고, 구매 규정을 시스템에 심습니다. 그렇게 줄어든 금액은 매출을 늘리지 않고도 영업이익으로 남습니다.</p>
         <div class="cta-row">
           <a class="cta" href="https://salesmap.kr/web-form/802cf350-4a6e-4b2e-9374-75e2045318d7">비용절감 진단 신청</a>
-          <a class="cta sec" href="https://salesmap.kr/web-form/977ae222-c6ab-4073-9849-591af0775adc">데모 받기</a>
+          <a class="subcta" href="#demo">제품 둘러보기<span class="arw" aria-hidden="true">&rarr;</span></a>
         </div>
         <p class="target">임직원 300인 이상 기업의 CFO · 구매 임원 대상</p>
       </div>
@@ -48,7 +48,33 @@ const keywords =
   </div>
 </div>
 
-<!-- ===== 2. 한눈에 (AI·검색 요약용) ===== -->
+<!-- ===== 2. 셀프 데모 — CTA 3단 중 1단계 : 학습 (요구하는 것 없음) ===== -->
+<section id="demo" aria-labelledby="demo-h">
+  <div class="wrap">
+    <p class="eyebrow">폼 없이 바로 보기</p>
+    <h2 id="demo-h" style="margin-top:18px">신청하지 않아도, 지금 보실 수 있습니다</h2>
+    <p class="lead">구매 요청 한 건이 정산까지 가는 과정을 실제 화면으로 담았습니다. 2분 30초입니다.</p>
+    <div class="demo">
+      <div class="player">
+        <div class="playerbody">
+          <span class="playbtn" aria-hidden="true"><i></i></span>
+          <span class="slotname">제품 투어 영상</span>
+          <span class="slotsrc">요청 &rarr; 승인 &rarr; 소싱 &rarr; 발주 &rarr; 검수 &rarr; 정산 화면 녹화 · 2분 30초</span>
+          <span class="slotsrc" style="color:var(--brand-l);font-weight:600">영상 준비 중 — 아래 목차로 먼저 확인하십시오</span>
+        </div>
+      </div>
+      <ol class="chapters">
+        <li><span class="t">00:00</span><span>자연어로 요청을 쓰면 부서와 경로가 정해집니다</span></li>
+        <li><span class="t">00:35</span><span>금액과 품목에 따라 결재선이 자동으로 붙습니다</span></li>
+        <li><span class="t">01:05</span><span>예산 한도를 넘는 요청이 발주 전에 걸립니다</span></li>
+        <li><span class="t">01:40</span><span>카탈로그와 견적요청 두 경로로 실제 구매가 끝납니다</span></li>
+        <li><span class="t">02:05</span><span>계정과목이 따라와 정산까지 이어집니다</span></li>
+      </ol>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 3. 한눈에 (AI·검색 요약용) ===== -->
 <section id="summary" aria-labelledby="summary-h">
   <div class="wrap">
     <h2 id="summary-h">제노(ZENO)를 한 문장으로</h2>
@@ -332,6 +358,40 @@ const keywords =
   </div>
 </section>
 
+<!-- ===== 9-2. 무엇이 다른가 — 기존 시스템 대비 차별점 ===== -->
+<section id="vs" aria-labelledby="vs-h">
+  <div class="wrap">
+    <h2 id="vs-h">쓰고 계신 시스템과 무엇이 다릅니까</h2>
+    <p class="lead">이미 ERP도 있고 전자결재도 있습니다. 제노는 그 시스템들을 대체하지 않고, 그 시스템들이 하지 않는 구간을 맡습니다.</p>
+    <div class="vs">
+      <div class="row head">
+        <span class="h">기존 시스템</span><span class="h">그 시스템이 하는 일</span><span class="h">제노가 더 하는 일</span>
+      </div>
+      <div class="row">
+        <span class="k">ERP 구매 모듈</span>
+        <span class="a">집행된 지출을 기록하고 결재합니다</span>
+        <span class="b">집행 이전에 규정으로 거릅니다</span>
+      </div>
+      <div class="row">
+        <span class="k">그룹웨어 전자결재</span>
+        <span class="a">올라온 문서를 승인합니다</span>
+        <span class="b">금액과 품목에 따라 결재선이 결정됩니다</span>
+      </div>
+      <div class="row">
+        <span class="k">구축형 구매 시스템</span>
+        <span class="a">대형 직접구매를 표준화합니다</span>
+        <span class="b">간접구매 롱테일을 구축 없이 덮습니다</span>
+      </div>
+      <div class="row">
+        <span class="k">법인카드 · 경비 관리</span>
+        <span class="a">이미 쓴 비용을 정산합니다</span>
+        <span class="b">쓰기 전에 한도와 경로를 적용합니다</span>
+      </div>
+    </div>
+    <p class="close-line">제노는 ERP를 바꾸는 솔루션이 아니라, 지출이 발생하기 전 구간을 맡는 솔루션입니다.</p>
+  </div>
+</section>
+
 <!-- ===== 10. 도입 사례 ===== -->
 <section id="cases" aria-labelledby="cases-h">
   <div class="wrap">
@@ -399,14 +459,17 @@ const keywords =
         <div class="field">
           <div class="row"><label for="r1">매출</label><span><b id="v1">3,000</b><span class="u">억원</span></span></div>
           <input type="range" id="r1" min="500" max="20000" step="100" value="3000" aria-label="매출 (억원)" />
+          <div class="scale"><span>500억</span><span>2조</span></div>
         </div>
         <div class="field">
           <div class="row"><label for="r2">영업이익률</label><span><b id="v2">5.0</b><span class="u">%</span></span></div>
           <input type="range" id="r2" min="1" max="20" step="0.5" value="5" aria-label="영업이익률 (%)" />
+          <div class="scale"><span>1%</span><span>20%</span></div>
         </div>
         <div class="field">
           <div class="row"><label for="r3">간접구매 규모</label><span><b id="v3">300</b><span class="u">억원</span></span></div>
           <input type="range" id="r3" min="50" max="4000" step="10" value="300" aria-label="간접구매 규모 (억원)" />
+          <div class="scale"><span>50억</span><span>4,000억</span></div>
         </div>
         <p class="simnote">산출 기준 — 금융그룹 계열사 도입 사례의 간접구매비 절감률 14.2%를 적용한 계산값입니다. 실제 결과는 지출 구성과 계약 조건에 따라 달라집니다.</p>
       </div>
@@ -417,7 +480,7 @@ const keywords =
           <div><span>현재 영업이익</span><b id="op1">150억</b></div>
           <div><span>절감액 반영 시</span><b id="op2">192.6억</b></div>
         </div>
-        <p class="simnote" style="margin-top:20px">줄어든 간접구매비는 매출을 늘리지 않고도 영업이익에 그대로 더해집니다.</p>
+        <p class="simdelta">영업이익률이 <b id="m1">5.0%</b>에서 <b id="m2">6.4%</b>로 올라갑니다. 줄어든 간접구매비는 매출을 늘리지 않고도 영업이익에 그대로 더해집니다.</p>
         <div class="cta-row" style="margin-top:26px">
           <a class="cta" href="https://salesmap.kr/web-form/802cf350-4a6e-4b2e-9374-75e2045318d7">비용절감 진단 신청</a>
         </div>
@@ -427,12 +490,45 @@ const keywords =
   </div>
 </section>
 
-<!-- ===== 13. FAQ + 최종 CTA ===== -->
+<!-- ===== 13. 리소스 — CTA 3단 중 2단계 : 검토 (이메일만) ===== -->
+<section id="resources" aria-labelledby="res-h">
+  <div class="wrap">
+    <h2 id="res-h">검토에 필요한 자료</h2>
+    <p class="lead">내부 보고와 비교 검토에 바로 쓰실 수 있도록 정리했습니다. 이메일만 남기시면 보내 드립니다.</p>
+    <div class="res3">
+      <article class="rescard">
+        <b>구매 시스템 도입 체크리스트</b>
+        <p>규정·결재·예산·계정·SLA·계약 여섯 영역을 기준으로, 무엇을 확인해야 하는지 정리한 점검표입니다.</p>
+        <a href="https://salesmap.kr/web-form/802cf350-4a6e-4b2e-9374-75e2045318d7">받기<span class="arw" aria-hidden="true">&rarr;</span></a>
+      </article>
+      <article class="rescard">
+        <b>간접구매 규정 템플릿</b>
+        <p>품목 분류와 금액별 결재 기준 예시입니다. 사내 규정 개정 시 초안으로 쓰실 수 있습니다.</p>
+        <a href="https://salesmap.kr/web-form/802cf350-4a6e-4b2e-9374-75e2045318d7">받기<span class="arw" aria-hidden="true">&rarr;</span></a>
+      </article>
+      <article class="rescard">
+        <b>지출 진단 가이드</b>
+        <p>어떤 데이터를 모아 무엇을 보면 새는 지출이 드러나는지 정리했습니다. 제노 없이도 해보실 수 있습니다.</p>
+        <a href="https://salesmap.kr/web-form/802cf350-4a6e-4b2e-9374-75e2045318d7">받기<span class="arw" aria-hidden="true">&rarr;</span></a>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 14. FAQ + 최종 CTA ===== -->
 <section id="faq" class="final" aria-labelledby="faq-h">
   <div class="wrap">
     <h2 id="faq-h">자주 묻는 질문</h2>
     <div class="faq">
       <details open>
+        <summary>쓰고 있는 ERP나 전자결재와 무엇이 다릅니까?</summary>
+        <p class="ans">제노는 기존 시스템을 대체하지 않고, 그 시스템들이 하지 않는 구간을 맡습니다. ERP는 집행된 지출을 기록하고, 제노는 집행 이전에 규정으로 거릅니다. 전자결재는 올라온 문서를 승인하고, 제노는 금액과 품목에 따라 결재선 자체를 결정합니다. 자세한 비교는 <a href="#vs" style="color:var(--brand-l)">무엇이 다른가</a>에서 확인하십시오.</p>
+      </details>
+      <details>
+        <summary>영업 상담 없이 제품을 먼저 볼 수 있나요?</summary>
+        <p class="ans">가능합니다. <a href="#demo" style="color:var(--brand-l)">제품 투어</a>는 신청 없이 바로 보실 수 있고, <a href="#resources" style="color:var(--brand-l)">검토 자료 3종</a>은 이메일만 남기시면 보내 드립니다. 진단 신청은 그다음에 결정하셔도 됩니다.</p>
+      </details>
+      <details>
         <summary>ERP를 바꿔야 하나요?</summary>
         <p class="ans">아닙니다. ERP는 지출을 기록하고, 제노는 지출 이전 단계에서 판단합니다. 제노는 ERP 위에서 작동합니다.</p>
       </details>
@@ -473,7 +569,7 @@ const keywords =
     <h2 style="margin-top:68px">30분이면, 귀사의 규정이 시스템 규칙이 되는 과정을 보실 수 있습니다</h2>
     <div class="cta-row">
       <a class="cta" href="https://salesmap.kr/web-form/802cf350-4a6e-4b2e-9374-75e2045318d7">비용절감 진단 신청</a>
-      <a class="cta sec" href="https://salesmap.kr/web-form/977ae222-c6ab-4073-9849-591af0775adc">데모 받기</a>
+      <a class="subcta" href="https://salesmap.kr/web-form/977ae222-c6ab-4073-9849-591af0775adc">데모 받기<span class="arw" aria-hidden="true">&rarr;</span></a>
     </div>
     <p class="target">임직원 300인 이상 기업의 CFO · 구매 임원 대상</p>
   </div>
@@ -510,19 +606,25 @@ const keywords =
       });
     });
 
-    /* Impact Simulator */
+    /* Impact Simulator — 금융그룹 계열사 도입 사례의 간접구매비 절감률 */
+    var RATE = 0.142;
     var R = ['r1', 'r2', 'r3'].map(function (id) { return document.getElementById(id); });
     if (!R[0]) return;
-    function fmt(n) { return n.toLocaleString('ko-KR'); }
+    function fmt(n) { return Number(n).toLocaleString('ko-KR'); }
+    function one(n) { return Math.round(n * 10) / 10; }
     function calc() {
       var rev = +R[0].value, mg = +R[1].value, ind = +R[2].value;
-      var save = ind * 0.142, op = rev * mg / 100;
+      // 간접구매 규모가 매출을 넘는 입력은 성립하지 않습니다.
+      if (ind > rev) { ind = rev; R[2].value = ind; }
+      var save = ind * RATE, op = rev * mg / 100, op2 = op + save;
       document.getElementById('v1').textContent = fmt(rev);
       document.getElementById('v2').textContent = mg.toFixed(1);
       document.getElementById('v3').textContent = fmt(ind);
-      document.getElementById('save').textContent = save.toFixed(1);
-      document.getElementById('op1').textContent = fmt(Math.round(op * 10) / 10) + '억';
-      document.getElementById('op2').textContent = fmt(Math.round((op + save) * 10) / 10) + '억';
+      document.getElementById('save').textContent = fmt(one(save));
+      document.getElementById('op1').textContent = fmt(one(op)) + '억';
+      document.getElementById('op2').textContent = fmt(one(op2)) + '억';
+      document.getElementById('m1').textContent = mg.toFixed(1) + '%';
+      document.getElementById('m2').textContent = (op2 / rev * 100).toFixed(1) + '%';
     }
     R.forEach(function (r) { r.addEventListener('input', calc); });
     calc();

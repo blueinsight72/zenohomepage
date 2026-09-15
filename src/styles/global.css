@@ -387,3 +387,59 @@ input[type=range]::-moz-range-thumb{width:18px;height:18px;border-radius:50%;bac
 .sibling span{display:block;margin-top:6px;font-size:13.5px;color:var(--muted);line-height:1.5}
 .sibling li.is-current a{background:rgba(47,89,168,.22)}
 .sibling li.is-current b{color:var(--brand-l)}
+
+/* ===== 보조 CTA 링크 (설계서 §7: 데모는 버튼으로 승격하지 않음) ===== */
+.subcta{display:inline-flex;align-items:center;gap:7px;color:#C3CEE3;font-size:16px;text-decoration:none;
+  border-bottom:1px solid rgba(195,206,227,.45);padding-bottom:3px;transition:color .18s,border-color .18s}
+.subcta:hover{color:#fff;border-bottom-color:#fff}
+.subcta .arw{transition:transform .18s}
+.subcta:hover .arw{transform:translateX(3px)}
+
+/* ===== 블록 2 : 셀프 데모 ===== */
+.demo{margin-top:40px;display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,1fr);
+  gap:clamp(26px,3.5vw,48px);align-items:start}
+@media(max-width:940px){.demo{grid-template-columns:1fr}}
+.player{border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;background:var(--glass)}
+.playerbody{aspect-ratio:16/9;display:flex;flex-direction:column;align-items:center;justify-content:center;
+  gap:12px;text-align:center;padding:24px;
+  background:repeating-linear-gradient(135deg,rgba(255,255,255,.028),rgba(255,255,255,.028) 12px,rgba(255,255,255,.055) 12px,rgba(255,255,255,.055) 24px)}
+.playbtn{width:60px;height:60px;border-radius:50%;background:linear-gradient(180deg,var(--brand),var(--brand-d));
+  display:flex;align-items:center;justify-content:center;flex:0 0 auto}
+.playbtn i{width:0;height:0;border-left:15px solid #fff;border-top:9px solid transparent;
+  border-bottom:9px solid transparent;margin-left:4px}
+.chapters{list-style:none}
+.chapters li{display:grid;grid-template-columns:52px 1fr;gap:14px;padding:14px 0;
+  border-top:1px solid var(--line-s);font-size:15.5px;color:#D7DFEF;line-height:1.5}
+.chapters li:last-child{border-bottom:1px solid var(--line-s)}
+.chapters .t{color:var(--brand-l);font-weight:700;font-size:13.5px;font-variant-numeric:tabular-nums}
+
+/* ===== 블록 9 : 무엇이 다른가 ===== */
+.vs{margin-top:38px;border-top:1px solid var(--line-s)}
+.vs .row{display:grid;grid-template-columns:minmax(140px,1fr) minmax(190px,1.3fr) minmax(190px,1.3fr);
+  gap:18px;padding:18px 0;border-bottom:1px solid var(--line-s);align-items:baseline}
+@media(max-width:760px){
+  .vs .row{grid-template-columns:1fr;gap:6px;padding:20px 0}
+  .vs .row.head{display:none}
+  .vs .a::before{content:"기존 : ";color:var(--dim)}
+  .vs .b::before{content:"제노 : ";color:var(--brand-l)}
+}
+.vs .h{font-size:13px;font-weight:700;color:var(--dim);letter-spacing:.01em}
+.vs .k{font-weight:700;font-size:16.5px;letter-spacing:-.015em;color:#fff}
+.vs .a{font-size:15.5px;color:var(--muted)}
+.vs .b{font-size:15.5px;color:#E3EAF8;font-weight:600}
+
+/* ===== 블록 13 : 리소스 ===== */
+.res3{margin-top:38px;display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:18px}
+.rescard{border:1px solid var(--line-s);border-radius:var(--radius);padding:26px 24px;background:var(--glass);
+  display:flex;flex-direction:column;gap:12px}
+.rescard b{font-size:18px;letter-spacing:-.015em;color:#fff}
+.rescard p{font-size:14.5px;color:var(--muted);line-height:1.6}
+.rescard a{margin-top:auto;padding-top:14px;font-size:15px;font-weight:700;color:var(--brand-l);
+  text-decoration:none;border-top:1px solid var(--line-s);display:inline-flex;align-items:center;gap:7px}
+.rescard a .arw{transition:transform .18s}
+.rescard a:hover .arw{transform:translateX(3px)}
+
+/* ===== 시뮬레이터 보강 ===== */
+.scale{display:flex;justify-content:space-between;margin-top:8px;font-size:12px;color:var(--dim)}
+.simdelta{margin-top:20px;font-size:15.5px;color:var(--muted);line-height:1.65}
+.simdelta b{color:#fff}
