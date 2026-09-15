@@ -85,7 +85,7 @@ export const homeJsonLd: Record<string, unknown> = {
       "primaryImageOfPage": "https://zeno.im/assets/og-image.png",
       "speakable": {
         "@type": "SpeakableSpecification",
-        "cssSelector": ["#hero-h", "#summary-h", "#summary .lead"]
+        "cssSelector": ["#hero-h", ".hero .lead"]
       }
     },
     {
