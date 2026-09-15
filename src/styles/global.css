@@ -443,3 +443,8 @@ input[type=range]::-moz-range-thumb{width:18px;height:18px;border-radius:50%;bac
 .scale{display:flex;justify-content:space-between;margin-top:8px;font-size:12px;color:var(--dim)}
 .simdelta{margin-top:20px;font-size:15.5px;color:var(--muted);line-height:1.65}
 .simdelta b{color:#fff}
+
+/* 준비 중인 자료 카드 */
+.rescard.soon{opacity:.62}
+.rescard .soonmark{margin-top:auto;padding-top:14px;border-top:1px solid var(--line-s);
+  font-size:13.5px;font-weight:700;color:var(--dim)}

@@ -17,11 +17,25 @@ export const SITE = {
   naverVerification: 'c3907f783a7b0ff670d3af2e65eaec4347fba933',
 } as const;
 
+/**
+ * 접수 폼.
+ *
+ * 세일즈맵에 등록된 실제 폼이며, 제목과 수집 항목은 아래와 같습니다.
+ * CTA 문구를 바꿀 때는 연결된 폼이 그 문구와 맞는지 먼저 확인하십시오.
+ */
 export const CTA = {
-  /** 도입 상담 신청 / 데모 받기 */
+  /**
+   * "캐스팅엔 ZENO(제노) | 도입 상담 신청하기"
+   * 성함·회사명·이메일·연락처·직무·직급·직원 규모·연간 간접구매 비용 규모·과제
+   * 지출 규모까지 받으므로 비용절감 진단과 데모 요청은 모두 이 폼으로 보냅니다.
+   */
   consult: 'https://salesmap.kr/web-form/977ae222-c6ab-4073-9849-591af0775adc',
-  /** 비용절감 진단 · 분석 리포트 신청 */
-  diagnosis: 'https://salesmap.kr/web-form/802cf350-4a6e-4b2e-9374-75e2045318d7',
+  /**
+   * "캐스팅엔 ZENO(제노) | 소개서 다운로드"
+   * 성함·연락처·이메일·회사명·직무·직급·과제
+   * 이메일로 소개서를 보내주는 자료 제공용 폼입니다.
+   */
+  brochure: 'https://salesmap.kr/web-form/802cf350-4a6e-4b2e-9374-75e2045318d7',
   login: 'https://bsm.zeno.im/',
 } as const;
 
