@@ -1,0 +1,140 @@
+---
+import { PRODUCT, SOLUTION, RESOURCE_ITEMS, CTA, MEGA_FOOT, productHref, solutionHref } from '../data/nav';
+---
+
+<header class="gnb" id="gnb">
+  <div class="gnb-in">
+    <a class="logo" href="/" aria-label="ZENO 홈">
+      <svg viewBox="0 0 151 46" fill="none" role="img" aria-label="ZENO">
+        <path d="M0 39.1857L24.8247 14.4385H6.2095V6.18945H45.5186L20.6939 30.9366H39.3091V39.1857H0Z" fill="white"/>
+        <path d="M88.9448 20.6293V39.1863H80.6699V0L105.495 24.7472V6.1901H113.769V45.3764L88.9448 20.6293Z" fill="white"/>
+        <path d="M117.9 39.1857V6.18945H151V39.1857H117.9ZM142.725 30.9366V14.4385H126.175V30.9366H142.725Z" fill="white"/>
+        <path d="M76.539 6.18945H43.4395V14.4385H76.539V6.18945Z" fill="white"/>
+        <path d="M76.539 30.9375H43.4395V39.1866H76.539V30.9375Z" fill="white"/>
+        <path d="M75.0728 19.9518H79.2036L73.8203 25.3316H0.945312L6.55518 19.7393L75.0728 19.9518Z" fill="white"/>
+      </svg>
+    </a>
+
+    <nav class="gnb-menu" aria-label="주 메뉴">
+      {['product', 'solution', 'resource'].map((key) => (
+        <div class="gnb-item" data-mega={key}>
+          <button class="gnb-btn" type="button" aria-expanded="false" aria-controls={`mega-${key}`}>
+            {key === 'product' ? '프로덕트' : key === 'solution' ? '솔루션' : '리소스'}
+            <svg class="chev" viewBox="0 0 10 6" fill="none" aria-hidden="true"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+          </button>
+        </div>
+      ))}
+      <a class="gnb-btn" href="/about">회사</a>
+    </nav>
+
+    <div class="gnb-right">
+      <a class="btn-ghost" href={CTA.login}>로그인</a>
+      <a class="btn-fill" href={CTA.consult}>도입 상담 신청</a>
+      <button class="burger" id="burger" type="button" aria-label="메뉴 열기" aria-expanded="false"><span></span></button>
+    </div>
+  </div>
+</header>
+
+<!-- 메가메뉴 : 프로덕트 -->
+<div class="mega" id="mega-product" data-mega-panel="product">
+  <div class="mega-card">
+    <div class="mega-grid">
+      {PRODUCT.map((g) => (
+        <div class="mega-col">
+          <span class="mega-tag">{g.tag}</span>
+          <p class="mega-sub">{g.sub}</p>
+          <ul class="mega-list">
+            {g.items.map((l) => (
+              <li>
+                <a href={productHref(g, l)}>
+                  <span><b>{l.label}</b><span>{l.desc}</span></span>
+                  <span class="arw" aria-hidden="true">&rarr;</span>
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
+      ))}
+    </div>
+    <p class="mega-foot">{MEGA_FOOT}</p>
+  </div>
+</div>
+
+<!-- 메가메뉴 : 솔루션 -->
+<div class="mega" id="mega-solution" data-mega-panel="solution">
+  <div class="mega-card">
+    <div class="mega-grid cols3">
+      {SOLUTION.map((g) => (
+        <div class="mega-col">
+          <span class="mega-tag">{g.tag}</span>
+          <p class="mega-sub">{g.sub}</p>
+          <ul class="mega-list">
+            {g.items.map((l) => (
+              <li>
+                <a href={solutionHref(g, l)}>
+                  <span><b>{l.label}</b><span>{l.desc}</span></span>
+                  <span class="arw" aria-hidden="true">&rarr;</span>
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
+      ))}
+    </div>
+    <p class="mega-foot">{MEGA_FOOT}</p>
+  </div>
+</div>
+
+<!-- 메가메뉴 : 리소스 -->
+<div class="mega" id="mega-resource" data-mega-panel="resource">
+  <div class="mega-card">
+    <div class="mega-simple">
+      {RESOURCE_ITEMS.map((r) => (
+        <a href={r.href}><b>{r.label}</b><span class="arw" aria-hidden="true">&rarr;</span></a>
+      ))}
+    </div>
+  </div>
+</div>
+
+<!-- 모바일 드로어 -->
+<div class="drawer" id="drawer">
+  <div class="dr-group">
+    <button class="dr-head" type="button">프로덕트
+      <svg class="chev" viewBox="0 0 10 6" fill="none" aria-hidden="true"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+    </button>
+    <div class="dr-body">
+      {PRODUCT.map((g) => (
+        <>
+          <h4>{g.tag}</h4>
+          {g.items.map((l) => <a href={productHref(g, l)}>{l.label}</a>)}
+        </>
+      ))}
+    </div>
+  </div>
+  <div class="dr-group">
+    <button class="dr-head" type="button">솔루션
+      <svg class="chev" viewBox="0 0 10 6" fill="none" aria-hidden="true"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+    </button>
+    <div class="dr-body">
+      {SOLUTION.map((g) => (
+        <>
+          <h4>{g.tag}</h4>
+          {g.items.map((l) => <a href={solutionHref(g, l)}>{l.label}</a>)}
+        </>
+      ))}
+    </div>
+  </div>
+  <div class="dr-group">
+    <button class="dr-head" type="button">리소스
+      <svg class="chev" viewBox="0 0 10 6" fill="none" aria-hidden="true"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+    </button>
+    <div class="dr-body">
+      {RESOURCE_ITEMS.map((r) => <a href={r.href}>{r.label}</a>)}
+    </div>
+  </div>
+  <div class="dr-group"><a class="dr-head" href="/about">회사</a></div>
+  <div class="dr-cta">
+    <a class="btn-ghost" href={CTA.login} style="display:inline-flex">로그인</a>
+    <a class="btn-fill" href={CTA.consult} style="display:inline-flex">도입 상담 신청</a>
+  </div>
+</div>

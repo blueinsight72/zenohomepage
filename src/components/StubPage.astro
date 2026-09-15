@@ -1,0 +1,105 @@
+---
+/**
+ * 하위 페이지 골격.
+ *
+ * 본문은 아직 비어 있지만 GNB·푸터·고유 title·h1·meta·구조화 데이터가
+ * 모두 들어 있어, 링크가 깨지지 않고 검색엔진에도 개별 페이지로 잡힙니다.
+ * 본문을 채울 때는 <slot />에 섹션을 추가하면 됩니다.
+ */
+import Base from '../layouts/Base.astro';
+import { SITE, CTA, type Group, type Leaf } from '../data/nav';
+
+export interface Props {
+  group: Group;
+  leaf: Leaf;
+  /** '프로덕트' | '솔루션' */
+  sectionLabel: string;
+  /** '/product' | '/solution' */
+  basePath: string;
+  /** 본문이 채워졌으면 true — 준비 중 안내를 숨깁니다 */
+  hasContent?: boolean;
+}
+
+const { group, leaf, sectionLabel, basePath, hasContent = false } = Astro.props;
+
+const href = `${basePath}/${group.key}/${leaf.slug}`;
+const canonical = `${SITE.url}${href}`;
+
+const jsonLd = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'WebPage',
+    '@id': `${canonical}#webpage`,
+    url: canonical,
+    name: leaf.title,
+    description: leaf.description,
+    inLanguage: 'ko-KR',
+    isPartOf: { '@id': `${SITE.url}/#website` },
+    about: { '@id': `${SITE.url}/#software` },
+    primaryImageOfPage: SITE.ogImage,
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    '@id': `${canonical}#breadcrumb`,
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: '홈', item: `${SITE.url}/` },
+      { '@type': 'ListItem', position: 2, name: sectionLabel, item: `${SITE.url}${basePath}` },
+      { '@type': 'ListItem', position: 3, name: group.tag },
+      { '@type': 'ListItem', position: 4, name: leaf.label, item: canonical },
+    ],
+  },
+];
+---
+
+<Base title={leaf.title} description={leaf.description} jsonLd={jsonLd}>
+  <section class="subhero">
+    <div class="wrap">
+      <nav class="crumb" aria-label="현재 위치">
+        <a href="/">홈</a><span class="sep" aria-hidden="true">/</span>
+        <span>{sectionLabel}</span><span class="sep" aria-hidden="true">/</span>
+        <span>{group.tag}</span><span class="sep" aria-hidden="true">/</span>
+        <span aria-current="page">{leaf.label}</span>
+      </nav>
+      <p class="eyebrow">{group.tag} · {leaf.label}</p>
+      <h1>{leaf.h1}</h1>
+      <p class="lead">{leaf.lead}</p>
+      <div class="cta-row">
+        <a class="cta" href={CTA.consult}>도입 상담 신청</a>
+        <a class="cta sec" href={CTA.diagnosis}>비용절감 진단 신청</a>
+      </div>
+      <p class="target">임직원 300인 이상 기업의 CFO · 구매 임원 대상</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <slot />
+
+      {!hasContent && (
+        <div class="stub">
+          <b>이 페이지의 상세 본문은 준비 중입니다</b>
+          <p>
+            기능 설명, 화면, 도입 사례가 순차적으로 추가됩니다.
+            지금 자세한 내용이 필요하시면 도입 상담을 신청해 주세요. 30분 안에
+            해당 기능이 귀사 규정에서 어떻게 동작하는지 보여 드립니다.
+          </p>
+        </div>
+      )}
+
+      <div class="sibling">
+        <h2>{group.tag}의 다른 기능</h2>
+        <ul>
+          {group.items.map((s) => (
+            <li class={s.slug === leaf.slug ? 'is-current' : ''}>
+              <a href={`${basePath}/${group.key}/${s.slug}`} aria-current={s.slug === leaf.slug ? 'page' : undefined}>
+                <b>{s.label}</b>
+                <span>{s.desc}</span>
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </div>
+  </section>
+</Base>

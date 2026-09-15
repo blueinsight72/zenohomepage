@@ -1,0 +1,18 @@
+# Cloudflare Pages 응답 헤더
+# https://developers.cloudflare.com/pages/configuration/headers/
+
+/*
+  X-Content-Type-Options: nosniff
+  X-Frame-Options: SAMEORIGIN
+  Referrer-Policy: strict-origin-when-cross-origin
+  Permissions-Policy: geolocation=(), microphone=(), camera=()
+  Strict-Transport-Security: max-age=31536000; includeSubDomains
+
+# 해시가 붙은 빌드 산출물은 영구 캐시
+/_astro/*
+  Cache-Control: public, max-age=31536000, immutable
+
+# AI·검색 크롤러가 읽는 평문 요약
+/llms.txt
+  Content-Type: text/plain; charset=utf-8
+  Cache-Control: public, max-age=3600

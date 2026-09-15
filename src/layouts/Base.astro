@@ -1,0 +1,194 @@
+---
+import { SITE } from '../data/nav';
+import Gnb from '../components/Gnb.astro';
+import Footer from '../components/Footer.astro';
+import '../styles/global.css';
+
+export interface Props {
+  /** 페이지 고유 제목. 뒤에 사이트명이 자동으로 붙습니다. */
+  title: string;
+  /** 페이지 고유 meta description. 70~160자 권장. */
+  description: string;
+  /** 페이지별 키워드 (선택) */
+  keywords?: string;
+  /** JSON-LD 객체 배열 (선택) */
+  jsonLd?: Record<string, unknown>[];
+  /** og:type (기본 website) */
+  ogType?: string;
+  /** 제목에 사이트명을 붙이지 않을 때 */
+  rawTitle?: boolean;
+}
+
+const { title, description, keywords, jsonLd = [], ogType = 'website', rawTitle = false } = Astro.props;
+
+// 정규 URL — 루트를 제외하고 끝 슬래시를 붙이지 않습니다.
+const path = Astro.url.pathname.replace(/\/+$/, '');
+const canonical = `${SITE.url}${path || '/'}`;
+const fullTitle = rawTitle ? title : `${title} | ${SITE.suffix}`;
+// og:image 는 반드시 절대 URL 이어야 합니다.
+const ogImageUrl = new URL(SITE.ogImage, SITE.url).href;
+---
+
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>{fullTitle}</title>
+
+  <!-- 기본 SEO -->
+  <meta name="description" content={description} />
+  {keywords && <meta name="keywords" content={keywords} />}
+  <link rel="canonical" href={canonical} />
+  <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1" />
+  <meta name="author" content="캐스팅엔(CastingN)" />
+  <meta name="naver-site-verification" content={SITE.naverVerification} />
+  <meta name="theme-color" content="#101828" />
+  <link rel="alternate" hreflang="ko" href={canonical} />
+  <link rel="alternate" hreflang="x-default" href={canonical} />
+
+  <!-- 소셜 공유 -->
+  <meta property="og:type" content={ogType} />
+  <meta property="og:site_name" content={SITE.name} />
+  <meta property="og:locale" content="ko_KR" />
+  <meta property="og:url" content={canonical} />
+  <meta property="og:title" content={fullTitle} />
+  <meta property="og:description" content={description} />
+  <meta property="og:image" content={ogImageUrl} />
+  <meta property="og:image:alt" content="ZENO(제노) AI 구매·지출 관리 솔루션" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content={fullTitle} />
+  <meta name="twitter:description" content={description} />
+  <meta name="twitter:image" content={ogImageUrl} />
+
+  <!-- AI 검색엔진용 평문 요약 -->
+  <link rel="alternate" type="text/plain" href={`${SITE.url}/llms.txt`} title="ZENO 개요 (LLM용 평문 요약)" />
+
+  <link rel="icon" href={SITE.favicon} />
+  <link rel="apple-touch-icon" href={SITE.favicon} />
+  
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.min.css" />
+
+  {jsonLd.map((block) => (
+    <script type="application/ld+json" set:html={JSON.stringify(block)} />
+  ))}
+</head>
+<body>
+  <a class="skip" href="#main">본문 바로가기</a>
+
+  <!-- 고정 배경 -->
+  <div class="bg-base" aria-hidden="true"></div>
+  <video class="bg-video" src={SITE.bgVideo} autoplay loop muted playsinline preload="none" aria-hidden="true"></video>
+  <div class="bg-veil" aria-hidden="true"></div>
+
+  <Gnb />
+
+  <div class="page">
+    <main id="main">
+      <slot />
+    </main>
+    <Footer />
+  </div>
+
+  <script>
+    (function () {
+      'use strict';
+
+      /* GNB : 스크롤 상태 */
+      var gnb = document.getElementById('gnb');
+      function onScroll() { gnb.classList.toggle('scrolled', window.scrollY > 8); }
+      window.addEventListener('scroll', onScroll, { passive: true });
+      onScroll();
+
+      /* GNB : 메가메뉴 */
+      var items = [].slice.call(document.querySelectorAll('.gnb-item'));
+      var panels = [].slice.call(document.querySelectorAll('.mega'));
+      var current = null, closeTimer = null;
+
+      function closeMega() {
+        items.forEach(function (i) {
+          i.classList.remove('is-open');
+          i.querySelector('.gnb-btn').setAttribute('aria-expanded', 'false');
+        });
+        panels.forEach(function (p) { p.classList.remove('is-open'); });
+        gnb.classList.remove('mega-on');
+        current = null;
+      }
+      function openMega(key) {
+        clearTimeout(closeTimer);
+        if (current === key) return;
+        closeMega();
+        var item = items.filter(function (i) { return i.dataset.mega === key; })[0];
+        var panel = panels.filter(function (p) { return p.dataset.megaPanel === key; })[0];
+        if (!item || !panel) return;
+        item.classList.add('is-open');
+        item.querySelector('.gnb-btn').setAttribute('aria-expanded', 'true');
+        panel.classList.add('is-open');
+        gnb.classList.add('mega-on');
+        current = key;
+      }
+      function scheduleClose() { clearTimeout(closeTimer); closeTimer = setTimeout(closeMega, 160); }
+
+      items.forEach(function (item) {
+        var key = item.dataset.mega;
+        item.addEventListener('mouseenter', function () { openMega(key); });
+        item.addEventListener('mouseleave', scheduleClose);
+        item.querySelector('.gnb-btn').addEventListener('click', function (e) {
+          e.preventDefault();
+          if (current === key) closeMega(); else openMega(key);
+        });
+      });
+      panels.forEach(function (p) {
+        p.addEventListener('mouseenter', function () { clearTimeout(closeTimer); });
+        p.addEventListener('mouseleave', scheduleClose);
+      });
+      document.addEventListener('keydown', function (e) { if (e.key === 'Escape') closeMega(); });
+      document.addEventListener('click', function (e) {
+        if (!e.target.closest('.gnb') && !e.target.closest('.mega')) closeMega();
+      });
+
+      /* GNB : 모바일 드로어 */
+      var burger = document.getElementById('burger');
+      var drawer = document.getElementById('drawer');
+      burger.addEventListener('click', function () {
+        var open = drawer.classList.toggle('is-open');
+        gnb.classList.toggle('open', open);
+        burger.setAttribute('aria-expanded', open ? 'true' : 'false');
+        burger.setAttribute('aria-label', open ? '메뉴 닫기' : '메뉴 열기');
+        document.body.style.overflow = open ? 'hidden' : '';
+      });
+      [].forEach.call(drawer.querySelectorAll('button.dr-head'), function (h) {
+        h.addEventListener('click', function () { h.parentElement.classList.toggle('is-open'); });
+      });
+
+      /* 푸터 Family Site */
+      var fam = document.getElementById('family');
+      var famBtn = fam.querySelector('.family-btn');
+      famBtn.addEventListener('click', function (e) {
+        e.stopPropagation();
+        var open = fam.classList.toggle('is-open');
+        famBtn.setAttribute('aria-expanded', open ? 'true' : 'false');
+      });
+      document.addEventListener('click', function () {
+        fam.classList.remove('is-open');
+        famBtn.setAttribute('aria-expanded', 'false');
+      });
+
+      /* 배경 영상 : 모바일·절전·저속 환경에서는 생략 (파일이 21MB 입니다) */
+      var v = document.querySelector('.bg-video');
+      var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      var conn = navigator.connection;
+      var slow = conn && (conn.saveData || /(^|-)(2g|3g)$/.test(conn.effectiveType || ''));
+      var narrow = window.innerWidth < 768;
+      if (v && !reduce && !slow && !narrow) {
+        v.preload = 'auto';
+        var p = v.play();
+        if (p && p.catch) p.catch(function () {});
+      } else if (v) {
+        v.remove();
+      }
+    })();
+  </script>
+</body>
+</html>

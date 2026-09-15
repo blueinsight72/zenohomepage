@@ -1,0 +1,17 @@
+---
+import StubPage from '../../../components/StubPage.astro';
+import { PRODUCT } from '../../../data/nav';
+
+export function getStaticPaths() {
+  return PRODUCT.flatMap((group) =>
+    group.items.map((leaf) => ({
+      params: { category: group.key, slug: leaf.slug },
+      props: { group, leaf },
+    }))
+  );
+}
+
+const { group, leaf } = Astro.props;
+---
+
+<StubPage group={group} leaf={leaf} sectionLabel="프로덕트" basePath="/product" />

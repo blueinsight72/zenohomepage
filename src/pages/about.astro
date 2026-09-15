@@ -1,0 +1,73 @@
+---
+import Base from '../layouts/Base.astro';
+import { SITE, CTA } from '../data/nav';
+
+const title = '회사 소개 — 국내 기업의 구매 지출 OS를 만듭니다';
+const description =
+  'ZENO(제노)를 만드는 (주)캐스팅엔은 국내 기업의 구매 지출 OS를 만듭니다. 110개 이상 기업 도입, 누적 거래 데이터 7조 원 이상. 카카오벤처스·알토스벤처스·신한금융그룹이 투자했습니다.';
+
+const jsonLd = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'AboutPage',
+    '@id': `${SITE.url}/about#webpage`,
+    url: `${SITE.url}/about`,
+    name: title,
+    description,
+    inLanguage: 'ko-KR',
+    isPartOf: { '@id': `${SITE.url}/#website` },
+    mainEntity: { '@id': 'https://www.castingn.com/#organization' },
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: '홈', item: `${SITE.url}/` },
+      { '@type': 'ListItem', position: 2, name: '회사', item: `${SITE.url}/about` },
+    ],
+  },
+];
+---
+
+<Base title={title} description={description} jsonLd={jsonLd}>
+  <section class="subhero">
+    <div class="wrap">
+      <nav class="crumb" aria-label="현재 위치">
+        <a href="/">홈</a><span class="sep" aria-hidden="true">/</span>
+        <span aria-current="page">회사</span>
+      </nav>
+      <p class="eyebrow">ZENO를 만드는 사람들</p>
+      <h1>기업의 모든 구매가 더 옳은 방법으로 관리될 수 있도록</h1>
+      <p class="lead">국내 기업의 구매 지출 OS를 만듭니다.</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <h2>숫자로 보는 캐스팅엔</h2>
+      <dl class="glance">
+        <div><dt>도입 기업</dt><dd>110개 이상</dd></div>
+        <div><dt>누적 거래 데이터</dt><dd>7조 원 이상</dd></div>
+        <div><dt>간접구매비 절감</dt><dd>도입고객 실측 최대 14.2%</dd></div>
+        <div><dt>투자사</dt><dd>카카오벤처스 · 알토스벤처스 · 신한금융그룹</dd></div>
+      </dl>
+
+      <h2 style="margin-top:72px">회사 정보</h2>
+      <dl class="glance">
+        <div><dt>법인명</dt><dd>(주)캐스팅엔 (CastingN)</dd></div>
+        <div><dt>대표이사</dt><dd>최준혁</dd></div>
+        <div><dt>사업자등록번호</dt><dd>423-86-00075</dd></div>
+        <div><dt>통신판매신고</dt><dd>제 2019-인천부평-1343</dd></div>
+        <div><dt>고객센터</dt><dd><a href="tel:16442653">1644-2653</a></dd></div>
+        <div><dt>이메일</dt><dd><a href="mailto:zeno@castingn.com">zeno@castingn.com</a></dd></div>
+        <div><dt>서울지점</dt><dd>서울시 마포구 공덕동 467, 롯데캐슬프레지던트 101동 1902호</dd></div>
+        <div><dt>본점</dt><dd>인천광역시 부평구 대정로 66, 4층 408호(부평동, 다운타운일레븐)</dd></div>
+      </dl>
+
+      <div class="cta-row">
+        <a class="cta" href={CTA.consult}>도입 상담 신청</a>
+        <a class="cta sec" href={CTA.diagnosis}>비용절감 진단 신청</a>
+      </div>
+    </div>
+  </section>
+</Base>

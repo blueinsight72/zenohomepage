@@ -1,0 +1,17 @@
+---
+import StubPage from '../../../components/StubPage.astro';
+import { SOLUTION } from '../../../data/nav';
+
+export function getStaticPaths() {
+  return SOLUTION.flatMap((group) =>
+    group.items.map((leaf) => ({
+      params: { group: group.key, slug: leaf.slug },
+      props: { group, leaf },
+    }))
+  );
+}
+
+const { group, leaf } = Astro.props;
+---
+
+<StubPage group={group} leaf={leaf} sectionLabel="솔루션" basePath="/solution" />

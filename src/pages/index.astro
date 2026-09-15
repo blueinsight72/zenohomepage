@@ -1,0 +1,530 @@
+---
+import Base from '../layouts/Base.astro';
+import { homeJsonLd } from '../data/homeSchema';
+
+const title = 'ZENO(제노) — AI 구매·지출 관리 솔루션 | 간접구매·판관비 절감';
+const description =
+  'ZENO(제노)는 캐스팅엔이 만든 AI 구매·지출 관리 솔루션(BSM)입니다. 간접구매와 판관비를 하나로 모으고 구매 규정(품목·결재·예산·계정·SLA·계약)을 시스템 규칙으로 심어, 매출을 늘리지 않고도 영업이익을 남깁니다. ERP 교체 없이 4~8주 도입.';
+const keywords =
+  '구매관리솔루션, 지출관리, BSM, 간접구매, MRO, 판관비 절감, 구매규정 시스템화, 예산통제, 전자결재 연동, S2P, P2P, 소싱, 역경매, 마켓플레이스, CFO 대시보드, ERP 연동, 제노, ZENO, 캐스팅엔, 업무마켓';
+---
+
+<Base title={title} description={description} keywords={keywords} jsonLd={[homeJsonLd]} rawTitle={true}>
+
+<!-- ===== 0. HERO ===== -->
+<section class="hero" aria-labelledby="hero-h">
+  <div class="wrap">
+    <div class="herogrid">
+      <div>
+        <p class="eyebrow">AI 구매·지출 관리 솔루션</p>
+        <h1 id="hero-h">비용을 이익으로 전환하는 AI 구매·지출 관리 솔루션, ZENO</h1>
+        <p class="lead">간접구매와 판관비를 하나로 모으고, 구매 규정을 시스템에 심습니다. 그렇게 줄어든 금액은 매출을 늘리지 않고도 영업이익으로 남습니다.</p>
+        <div class="cta-row">
+          <a class="cta" href="https://salesmap.kr/web-form/802cf350-4a6e-4b2e-9374-75e2045318d7">비용절감 진단 신청</a>
+          <a class="cta sec" href="https://salesmap.kr/web-form/977ae222-c6ab-4073-9849-591af0775adc">데모 받기</a>
+        </div>
+        <p class="target">임직원 300인 이상 기업의 CFO · 구매 임원 대상</p>
+      </div>
+      <div>
+        <div class="slot">
+          <div class="slotbar"><i class="dot"></i><i class="dot"></i><i class="dot"></i></div>
+          <div class="slotbody">
+            <span class="slotname">대표 제품 화면</span>
+            <span class="slotsrc">PC 구매관리자 대시보드 전체 폭 + 모바일 화면을 우하단에 겹침</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 1. TRUST ===== -->
+<div class="trust">
+  <div class="wrap">
+    <span><b>110+</b> 도입 기업</span>
+    <span><b>7조 원+</b> 누적 거래 데이터</span>
+    <span><b>14.2%</b> 간접구매비 절감(도입고객 실측 최대치)</span>
+    <span>카카오벤처스 · 알토스벤처스 · 신한금융그룹 투자</span>
+  </div>
+</div>
+
+<!-- ===== 2. 한눈에 (AI·검색 요약용) ===== -->
+<section id="summary" aria-labelledby="summary-h">
+  <div class="wrap">
+    <h2 id="summary-h">제노(ZENO)를 한 문장으로</h2>
+    <p class="lead"><strong>ZENO(제노)는 기업의 간접구매와 판관비를 하나의 시스템에서 관리하는 AI 구매·지출 관리 솔루션(BSM, Business Spend Management)입니다.</strong> 구매 규정을 시스템 규칙으로 바꿔 지출이 일어나기 전에 통제하고, 마켓플레이스와 소싱으로 실행하며, 세이빙 엔진으로 절감 성과를 검증합니다. ERP는 교체하지 않고 그 위에서 작동합니다.</p>
+    <dl class="glance">
+      <div><dt>제품 분류</dt><dd>AI 구매·지출 관리 솔루션 (BSM / S2P)</dd></div>
+      <div><dt>만든 곳</dt><dd>(주)캐스팅엔 — 구 업무마켓</dd></div>
+      <div><dt>주요 대상</dt><dd>임직원 300인 이상 기업의 CFO · 구매 임원</dd></div>
+      <div><dt>다루는 지출</dt><dd>간접구매 전체 — 정기지출·비정기지출, 카탈로그·견적요청</dd></div>
+      <div><dt>도입 기간</dt><dd>4~8주 (전산 개발 불필요)</dd></div>
+      <div><dt>기존 시스템</dt><dd>ERP·그룹웨어·공급사 교체 없이 연동</dd></div>
+      <div><dt>절감 실적</dt><dd>도입고객 실측 간접구매비 절감 최대 14.2%</dd></div>
+      <div><dt>핵심 구조</dt><dd>규정 관리 · 마켓플레이스 · 세이빙 엔진의 3개 레이어</dd></div>
+    </dl>
+  </div>
+</section>
+
+<!-- ===== 3. 규정 시스템화 ===== -->
+<section id="policy" aria-labelledby="policy-h">
+  <div class="wrap">
+    <div class="split rev">
+      <div class="col-txt">
+        <h2 id="policy-h">구매 규정을 문서가 아니라 시스템 동작으로 관리합니다</h2>
+        <p class="lead">품목·결재·예산·계정·SLA·계약. 구매에 적용되는 여섯 가지 규정을 제노 한 곳에서 설정하면, 요청 단계부터 정산까지 모든 거래에 같은 기준이 적용됩니다.</p>
+        <p class="close-line">예산은 결산에서 확인하는 숫자가 아니라, 요청을 막는 기준입니다.</p>
+      </div>
+      <div class="col-img">
+        <div class="slot">
+          <div class="slotbar"><i class="dot"></i><i class="dot"></i><i class="dot"></i></div>
+          <div class="slotbody">
+            <span class="slotname">규정 관리 · 예산 통제</span>
+            <span class="slotsrc">조직별 월 예산 매트릭스와 요청 시점 잔여 예산 조회 화면</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="compare">
+      <div>
+        <h3>규정이 문서로만 있을 때</h3>
+        <p>담당자가 규정집을 찾아 결재선을 직접 지정합니다</p>
+        <p>금액 기준을 잘못 적용해도 사후에야 확인됩니다</p>
+        <p>급한 건은 구두 승인 후 결재를 나중에 올립니다</p>
+        <p>규정을 개정해도 실제 적용 시점이 제각각입니다</p>
+      </div>
+      <div>
+        <h3>제노에서 규정을 설정했을 때</h3>
+        <p>요청 금액과 품목이 입력되면 결재선이 자동 결정됩니다</p>
+        <p>조건에 맞지 않는 결재선은 선택 자체가 불가합니다</p>
+        <p>구두 승인 경로가 없어 모든 승인이 기록으로 남습니다</p>
+        <p>규정을 고치면 그 시점 이후 전 건에 동일하게 적용됩니다</p>
+      </div>
+    </div>
+
+    <div class="rules">
+      <div class="rule"><b>품목별 규정</b><em>무엇을 사는가</em><span>표준품목 3단계 체계에 주관부서와 구매방식을 미리 지정합니다</span></div>
+      <div class="rule"><b>전결 · 결재 규정</b><em>누가 승인하는가</em><span>금액 &times; 품목 &times; 조직 조건으로 승인 경로가 자동 결정됩니다</span></div>
+      <div class="rule"><b>예산 규정</b><em>얼마까지 쓰는가</em><span>조직별·계정별 연간 예산을 요청 시점에 사전 차감합니다</span></div>
+      <div class="rule"><b>계정 규정</b><em>어떤 비용인가</em><span>품목을 회계 계정과목에 매핑해 정산까지 자동 연결합니다</span></div>
+      <div class="rule"><b>SLA 규정</b><em>언제까지 처리하는가</em><span>업무 단계별 목표 시간, 경고·위반 기준, 초과 시 통보 경로가 항목 단위로 등록돼 있습니다</span></div>
+      <div class="rule"><b>계약 관리</b><em>어떤 조건으로 묶는가</em><span>계약서 유형별 점검 기준으로 조항 리스크를 사전 판정합니다</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 4. 구매 6단계 ===== -->
+<section id="process" aria-labelledby="process-h">
+  <div class="wrap">
+    <h2 id="process-h">엑셀과 메일로 하던 구매가, 하나의 시스템 안으로 들어옵니다</h2>
+    <p class="lead">요청·승인·소싱·발주·검수·정산이 한 곳에서 처리됩니다.</p>
+
+    <div class="tabs" role="tablist" aria-label="구매 6단계">
+      <button class="tab is-on" role="tab" aria-selected="true" aria-controls="p1" id="t1" data-step="1"><i>STEP 1</i><b>구매요청</b></button>
+      <button class="tab" role="tab" aria-selected="false" aria-controls="p2" id="t2" data-step="2"><i>STEP 2</i><b>승인·결재</b></button>
+      <button class="tab" role="tab" aria-selected="false" aria-controls="p3" id="t3" data-step="3"><i>STEP 3</i><b>소싱·계약</b></button>
+      <button class="tab" role="tab" aria-selected="false" aria-controls="p4" id="t4" data-step="4"><i>STEP 4</i><b>발주</b></button>
+      <button class="tab" role="tab" aria-selected="false" aria-controls="p5" id="t5" data-step="5"><i>STEP 5</i><b>검수</b></button>
+      <button class="tab" role="tab" aria-selected="false" aria-controls="p6" id="t6" data-step="6"><i>STEP 6</i><b>정산</b></button>
+    </div>
+
+    <div class="panels">
+      <div class="panel is-on" id="p1" role="tabpanel" aria-labelledby="t1" data-step="1">
+        <div class="paneltxt">
+          <h3>자연어로 쓰면, 어디에 요청할지는 시스템이 정합니다</h3>
+          <p>&ldquo;이건 어디에 요청하죠?&rdquo;라는 질문이 사라집니다. &ldquo;직원 30명 노트북 거치대, 예산 300만원&rdquo;이라고 쓰면 AI가 사내 분류체계에 매핑하고 주관 부서와 요청 방법을 안내합니다. 규정상 직접 구매가 제한되는 품목은 주관 부서로 경로를 전환합니다.</p>
+        </div>
+        <div class="slot"><div class="slotbar"><i class="dot"></i><i class="dot"></i><i class="dot"></i></div>
+          <div class="slotbody"><span class="slotname">AI 요청 분류 화면</span><span class="slotsrc">자연어 요청 입력과 주관 부서·요청 방법 안내 결과</span></div></div>
+      </div>
+      <div class="panel" id="p2" role="tabpanel" aria-labelledby="t2" data-step="2" hidden>
+        <div class="paneltxt">
+          <h3>결재선은 고르는 것이 아니라 결정되는 것입니다</h3>
+          <p>금액과 품목이 입력되면 승인 경로가 자동으로 정해집니다. 진행 건수와 SLA 초과 알림은 모바일에서 확인하고 승인까지 처리합니다. 승인 대기가 리드타임의 가장 큰 변수이기 때문입니다.</p>
+        </div>
+        <div class="slot"><div class="slotbar"><i class="dot"></i><i class="dot"></i><i class="dot"></i></div>
+          <div class="slotbody"><span class="slotname">모바일 진행 현황 · 승인</span><span class="slotsrc">내 PR 진행중, 승인 대기, SLA 초과 알림이 보이는 모바일 화면</span></div></div>
+      </div>
+      <div class="panel" id="p3" role="tabpanel" aria-labelledby="t3" data-step="3" hidden>
+        <div class="paneltxt">
+          <h3>공급사 후보와 견적 비교표가 초안으로 제시됩니다</h3>
+          <p>소싱 전략과 공급사 후보를 함께 제시하고, 견적이 모이면 비교표 초안을 만듭니다. 판단과 협상은 담당자가 합니다.</p>
+        </div>
+        <div class="slot"><div class="slotbar"><i class="dot"></i><i class="dot"></i><i class="dot"></i></div>
+          <div class="slotbody"><span class="slotname">소싱 · 견적 비교표</span><span class="slotsrc">공급사 후보 목록과 다중 견적 비교 화면</span></div></div>
+      </div>
+      <div class="panel" id="p4" role="tabpanel" aria-labelledby="t4" data-step="4" hidden>
+        <div class="paneltxt">
+          <h3>예산과 승인선은 발주 전에 검증됩니다</h3>
+          <p>해당 조직과 계정의 잔여 예산이 조회되고, 초과 요청은 상위 결재 경로로 전환되거나 차단됩니다. 결산에서 확인하는 것이 아닙니다.</p>
+        </div>
+        <div class="slot"><div class="slotbar"><i class="dot"></i><i class="dot"></i><i class="dot"></i></div>
+          <div class="slotbody"><span class="slotname">발주 · 예산 사전 검증</span><span class="slotsrc">발주 직전 잔여 예산 조회와 한도 판정 화면</span></div></div>
+      </div>
+      <div class="panel" id="p5" role="tabpanel" aria-labelledby="t5" data-step="5" hidden>
+        <div class="paneltxt">
+          <h3>입고와 품질이 요청 건에 붙어 기록됩니다</h3>
+          <p>검수 결과가 해당 요청 건에 그대로 남아, 나중에 문제가 생겼을 때 어느 단계에서 무엇이 확인됐는지 되짚을 수 있습니다.</p>
+        </div>
+        <div class="slot"><div class="slotbar"><i class="dot"></i><i class="dot"></i><i class="dot"></i></div>
+          <div class="slotbody"><span class="slotname">검수 · 입고 기록</span><span class="slotsrc">입고 확인과 품질 기록이 요청 건에 연결된 화면</span></div></div>
+      </div>
+      <div class="panel" id="p6" role="tabpanel" aria-labelledby="t6" data-step="6" hidden>
+        <div class="paneltxt">
+          <h3>계정과목이 따라와 있어 다시 분류하지 않습니다</h3>
+          <p>요청 단계에서 확정된 계정과목이 정산까지 따라옵니다. 세금계산서가 자동으로 매칭되어 재무팀이 월말에 전표를 다시 분류할 필요가 없습니다.</p>
+        </div>
+        <div class="slot"><div class="slotbar"><i class="dot"></i><i class="dot"></i><i class="dot"></i></div>
+          <div class="slotbody"><span class="slotname">정산 · 계정과목별 현황</span><span class="slotsrc">세금계산서 매칭 결과와 계정과목별 정산 현황</span></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 5. 마켓플레이스 ===== -->
+<section id="marketplace" aria-labelledby="mk-h">
+  <div class="wrap">
+    <div class="split rev">
+      <div class="col-txt">
+        <h2 id="mk-h">거래하던 공급사 그대로, 제노 안에서 삽니다</h2>
+        <p class="lead">구매 경로는 두 가지입니다. 등록된 품목은 카탈로그에서 바로 고르고, 없는 품목은 견적요청으로 여러 공급사를 비교합니다.</p>
+        <ul class="solve">
+          <li>거래하던 공급사는 그대로 쓰면서 하나의 구매 체계 안에 담습니다</li>
+          <li>자주 쓰는 품목은 카탈로그에 등록돼 있어 고르기만 하면 됩니다</li>
+          <li>카탈로그에 없는 건은 견적요청으로 여러 공급사를 한 번에 비교합니다</li>
+          <li>거래가 쌓일수록 가격과 공급사 추천 품질이 올라갑니다</li>
+        </ul>
+        <p class="close-line">살 곳이 있어야 규정도 지켜집니다.</p>
+      </div>
+      <div class="col-img">
+        <div class="slot"><div class="slotbar"><i class="dot"></i><i class="dot"></i><i class="dot"></i></div>
+          <div class="slotbody"><span class="slotname">마켓플레이스 · 견적 비교</span><span class="slotsrc">등록 품목 카탈로그와 다중 견적 비교표 화면</span></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 6. ZENO AI ===== -->
+<section id="ai" aria-labelledby="ai-h">
+  <div class="wrap">
+    <h2 id="ai-h">절감을 찾는 AI, 구매를 실행하는 AI</h2>
+    <p class="lead">제노가 다루는 범위는 간접구매 전체입니다. 매달 나가는 정기지출과 그때그때 생기는 비정기지출, 카탈로그 구매와 견적요청 구매를 모두 포함합니다.</p>
+
+    <div class="aithree">
+      <div>볼륨 레버리지로 더 싸게 삽니다</div>
+      <div>필요 이상으로 사는 것을 구매 전에 막습니다</div>
+      <div>이미 나가고 있지만 필요 없는 비용을 찾아 없앱니다</div>
+    </div>
+
+    <div class="aicols">
+      <div class="aicol">
+        <h3>비용절감 AI · Saving Engine</h3>
+        <div class="eng"><b>Price Saving</b><i>같은 것을 더 싸게 삽니다</i><em>과거단가 · 시장가 · 벤치마크를 비교해 목표단가와 예상 절감액을 제시합니다</em></div>
+        <div class="eng"><b>Demand Saving</b><i>필요 이상으로 사지 않게 합니다</i><em>중복과 과다 수량을 차단하고, 보유 자산과 재고를 먼저 확인합니다</em></div>
+        <div class="eng"><b>Waste Saving</b><i>이미 나가는 비용을 없앱니다</i><em>미사용 구독, 렌탈, 휴면 회선, 자동갱신 계약을 찾아냅니다</em></div>
+        <div class="eng"><b>Specification Saving</b><i>요구 사양 자체를 최적화합니다</i><em>과잉 사양을 검증하고 동등 사양 대안을 제시합니다</em></div>
+        <div class="eng"><b>Contract Saving</b><i>계약조건과 총비용을 최적화합니다</i><em>자동갱신, 가격 인상률, 최소수량, 해지조건을 탐지해 대안을 제시합니다</em></div>
+      </div>
+
+      <div class="aicol">
+        <h3>실행 AI · 에이전트와 툴</h3>
+        <p class="aisub">AI 에이전트 9종</p>
+        <div class="agents">
+          <span>구매요청 작성</span><span>소싱</span><span>RFx 작성</span><span>계약서 검토</span>
+          <span>상품 검색</span><span>공급사 추천</span><span>지출 분석</span><span>거버넌스</span>
+          <span>통계 생성</span>
+        </div>
+        <p class="aisub">AI 툴 4종</p>
+        <div class="agents">
+          <span>문서 추출</span><span>결재선 자동 생성</span><span>회계계정 자동 설정</span><span>품목 자동 추천</span>
+        </div>
+        <div class="slot" style="margin-top:24px">
+          <div class="slotbar"><i class="dot"></i><i class="dot"></i><i class="dot"></i></div>
+          <div class="slotbody"><span class="slotname">세이빙 엔진 · 에이전트 화면</span><span class="slotsrc">절감 기회 목록과 AI 요청 분류 결과 화면</span></div>
+        </div>
+        <p class="aiguard">AI는 담당자의 판단을 보조합니다. 공급사 선정과 최종 승인은 담당자가 합니다.</p>
+      </div>
+    </div>
+
+    <div class="kpibar">
+      <b>KPI 전환 — &ldquo;얼마를 관리했는가&rdquo;에서 &ldquo;얼마를 실제로 줄였는가&rdquo;로.</b>
+      절감 기회는 Identified &rarr; Validated &rarr; Actioned &rarr; Realized 네 단계로 관리하며, 경영진에게 보고하는 숫자는 Realized Saving입니다.
+    </div>
+  </div>
+</section>
+
+<!-- ===== 7. 절감 인정 ===== -->
+<section id="saving" aria-labelledby="saving-h">
+  <div class="wrap">
+    <div class="split">
+      <div class="col-txt">
+        <h2 id="saving-h">구매팀이 만든 절감을, 시스템에서 확인하고 인정받습니다</h2>
+        <p class="lead">절감을 주장하는 쪽과 인정하는 쪽의 기준이 다르면 숫자는 매번 처음부터 다시 설명해야 합니다. 제노는 무엇과 비교할지, 어디까지를 절감으로 볼지를 시스템에 먼저 고정합니다. 담당자는 그 기준 위에서 분석하고, 결과는 그대로 재무 검토를 통과합니다.</p>
+      </div>
+      <div class="col-img">
+        <div class="slot"><div class="slotbar"><i class="dot"></i><i class="dot"></i><i class="dot"></i></div>
+          <div class="slotbody"><span class="slotname">절감 인정 리포트</span><span class="slotsrc">기준가격과 산출 근거, 재무 승인 상태가 함께 보이는 절감 인정 화면</span></div></div>
+      </div>
+    </div>
+    <p class="lead" style="margin-top:44px">아래 6단계는 정기지출 기준입니다. 비정기 건은 견적 경쟁 이력이 산출 근거가 됩니다.</p>
+    <div class="steps">
+      <div class="step"><i>STEP 1</i><b>정기지출 탐지</b><span>회계·카드·청구에서 반복 거래</span></div>
+      <div class="step"><i>STEP 2</i><b>계약 연결</b><span>계약·청구·사용자 연결</span></div>
+      <div class="step"><i>STEP 3</i><b>낭비 진단</b><span>미사용·과다·중복·청구 오류</span></div>
+      <div class="step"><i>STEP 4</i><b>대안 비교</b><span>유지·축소·해지·전환 총비용</span></div>
+      <div class="step"><i>STEP 5</i><b>실행</b><span>견적·협상 후 계약 변경</span></div>
+      <div class="step"><i>STEP 6</i><b>인정</b><span>청구 반영 확인 후 실현 절감 확정</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 8. 3 레이어 ===== -->
+<section id="layers" aria-labelledby="layers-h">
+  <div class="wrap">
+    <h2 id="layers-h">제노는 세 개의 레이어로 되어 있습니다</h2>
+    <p class="lead">규정이 통제하고, 마켓플레이스가 실행하고, 세이빙 엔진이 성과를 확인합니다.</p>
+    <div class="layers">
+      <div class="layer"><b>규정 관리</b><em>통제 레이어</em><span>품목·결재·예산·계정·SLA·계약 여섯 규정을 조건식으로 저장해 요청 단계부터 적용합니다</span></div>
+      <div class="layer"><b>마켓플레이스</b><em>실행 레이어</em><span>기존 공급사를 유지하면서 규정 안에서 실제 구매가 끝까지 실행되게 합니다</span></div>
+      <div class="layer"><b>세이빙 엔진</b><em>성과 레이어</em><span>비용절감 방법을 상시로 점검하고, 절감의 기준과 근거를 시스템에 남깁니다</span></div>
+    </div>
+    <p class="aibar"><b>AI는 네 번째 레이어가 아닙니다.</b> 요청 분류, 견적 비교, 낭비 진단 세 지점에서 사람의 판단을 돕습니다. 최종 결정은 담당자가 합니다.</p>
+  </div>
+</section>
+
+<!-- ===== 9. 기능 커버리지 ===== -->
+<section id="coverage" aria-labelledby="cov-h">
+  <div class="wrap">
+    <h2 id="cov-h">구매에 필요한 기능은 다 들어 있습니다</h2>
+    <p class="lead">정기지출과 비정기지출, 카탈로그 구매와 견적요청 구매를 모두 덮습니다.</p>
+    <div class="cov">
+      <div class="covcol">
+        <h3>구매 통제</h3><em>규정이 작동하는 층</em>
+        <ul>
+          <li><a href="/product/control/policy-engine">구매규정 시스템화</a></li>
+          <li><a href="/product/control/approval-flow">승인 워크플로우</a></li>
+          <li><a href="/product/control/budget-control">예산 통제</a></li>
+          <li><a href="/product/control/intake-governance">AI 인테이크 거버넌스</a></li>
+        </ul>
+      </div>
+      <div class="covcol">
+        <h3>구매 실행</h3><em>실제로 사는 층</em>
+        <ul>
+          <li><a href="/product/execution/p2p">구매요청 · 발주</a></li>
+          <li><a href="/product/execution/s2c">소싱 · 계약</a></li>
+          <li><a href="/product/execution/bidding">입찰 · 역경매</a></li>
+          <li><a href="/product/execution/marketplace">마켓플레이스</a></li>
+          <li><a href="/product/execution/service-procurement">서비스 구매</a></li>
+          <li><a href="/product/execution/url-purchase">URL 구매</a></li>
+        </ul>
+      </div>
+      <div class="covcol">
+        <h3>데이터 · 연동</h3><em>밖과 이어지는 층</em>
+        <ul>
+          <li><a href="/product/integration/erp-groupware">ERP · 그룹웨어 연동</a></li>
+          <li><a href="/product/integration/e-tax">전자세금계산서</a></li>
+          <li><a href="/product/integration/cfo-dashboard">CFO 대시보드</a></li>
+          <li><a href="/product/integration/supplier-portal">협력사 포털</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 10. 도입 사례 ===== -->
+<section id="cases" aria-labelledby="cases-h">
+  <div class="wrap">
+    <h2 id="cases-h">도입 사례</h2>
+    <p class="lead">규모와 업종이 다른 기업이 각각 어떤 문제로 시작해 어디까지 갔는지 정리했습니다.</p>
+    <div class="cases">
+      <article class="case">
+        <span class="ind">업종 표기</span>
+        <h3 class="ph">사례 제목이 들어갑니다</h3>
+        <dl><dt>도입 배경</dt><dd class="ph">내용 대기</dd><dt>적용 범위</dt><dd class="ph">내용 대기</dd><dt>도입 기간</dt><dd class="ph">내용 대기</dd></dl>
+        <p class="res ph">결과 수치</p>
+      </article>
+      <article class="case">
+        <span class="ind">업종 표기</span>
+        <h3 class="ph">사례 제목이 들어갑니다</h3>
+        <dl><dt>도입 배경</dt><dd class="ph">내용 대기</dd><dt>적용 범위</dt><dd class="ph">내용 대기</dd><dt>도입 기간</dt><dd class="ph">내용 대기</dd></dl>
+        <p class="res ph">결과 수치</p>
+      </article>
+      <article class="case">
+        <span class="ind">업종 표기</span>
+        <h3 class="ph">사례 제목이 들어갑니다</h3>
+        <dl><dt>도입 배경</dt><dd class="ph">내용 대기</dd><dt>적용 범위</dt><dd class="ph">내용 대기</dd><dt>도입 기간</dt><dd class="ph">내용 대기</dd></dl>
+        <p class="res ph">결과 수치</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 11. 온보딩 ===== -->
+<section id="onboarding" aria-labelledby="ob-h">
+  <div class="wrap">
+    <h2 id="ob-h">세팅은 제노 온보딩 팀이 합니다</h2>
+    <p class="lead">도입을 결정하시면, 시작에 필요한 준비는 제노 온보딩 팀이 진행합니다. 네 가지 작업을 4주에서 8주 안에 마치고 운영으로 넘겨 드립니다. 전산 개발은 필요하지 않습니다.</p>
+    <div class="cov">
+      <div class="covcol">
+        <h3>지출 분석</h3><em>무엇을 사고 있는지</em>
+        <ul><li>회계·카드·청구 데이터 수집</li><li>반복 거래와 누락 계약 확인</li><li>대상 지출 범위 확정</li></ul>
+      </div>
+      <div class="covcol">
+        <h3>품목 표준화</h3><em>어떻게 부를지</em>
+        <ul><li>사내 품목명 정리</li><li>표준품목 체계 등록</li><li>계정과목 매핑</li></ul>
+      </div>
+      <div class="covcol">
+        <h3>규정 분석과 세팅</h3><em>어떤 기준으로</em>
+        <ul><li>규정집·결재 체계 검토</li><li>결재선·예산·SLA 등록</li><li>등록값 검증</li></ul>
+      </div>
+      <div class="covcol">
+        <h3>공급사 등록</h3><em>어디서 살지</em>
+        <ul><li>거래 이력 공급사 일괄 등록</li><li>계약·단가 이력 이관</li><li>공급사 포털 안내</li></ul>
+      </div>
+    </div>
+    <p class="close-line">고객사가 하실 일은 도입 결정과 규정 확인입니다.</p>
+  </div>
+</section>
+
+<!-- ===== 12. 시뮬레이터 ===== -->
+<section id="simulator" aria-labelledby="sim-h">
+  <div class="wrap">
+    <h2 id="sim-h">귀사 숫자로 바꿔 보십시오</h2>
+    <p class="lead">아래 세 값을 조정하면 간접구매에서 나올 수 있는 절감액과, 그 금액이 영업이익에 더해졌을 때의 모습을 계산합니다.</p>
+    <div class="sim">
+      <div>
+        <span class="simlab">Impact Simulator</span>
+        <h3>세 가지만 입력하면 됩니다</h3>
+        <div class="field">
+          <div class="row"><label for="r1">매출</label><span><b id="v1">3,000</b><span class="u">억원</span></span></div>
+          <input type="range" id="r1" min="500" max="20000" step="100" value="3000" aria-label="매출 (억원)" />
+        </div>
+        <div class="field">
+          <div class="row"><label for="r2">영업이익률</label><span><b id="v2">5.0</b><span class="u">%</span></span></div>
+          <input type="range" id="r2" min="1" max="20" step="0.5" value="5" aria-label="영업이익률 (%)" />
+        </div>
+        <div class="field">
+          <div class="row"><label for="r3">간접구매 규모</label><span><b id="v3">300</b><span class="u">억원</span></span></div>
+          <input type="range" id="r3" min="50" max="4000" step="10" value="300" aria-label="간접구매 규모 (억원)" />
+        </div>
+        <p class="simnote">산출 기준 — 금융그룹 계열사 도입 사례의 간접구매비 절감률 14.2%를 적용한 계산값입니다. 실제 결과는 지출 구성과 계약 조건에 따라 달라집니다.</p>
+      </div>
+      <div class="simout">
+        <span class="simlab">예상 절감액</span>
+        <p class="big" aria-live="polite"><span id="save">42.6</span><em>억원</em></p>
+        <div class="simsplit">
+          <div><span>현재 영업이익</span><b id="op1">150억</b></div>
+          <div><span>절감액 반영 시</span><b id="op2">192.6억</b></div>
+        </div>
+        <p class="simnote" style="margin-top:20px">줄어든 간접구매비는 매출을 늘리지 않고도 영업이익에 그대로 더해집니다.</p>
+        <div class="cta-row" style="margin-top:26px">
+          <a class="cta" href="https://salesmap.kr/web-form/802cf350-4a6e-4b2e-9374-75e2045318d7">비용절감 진단 신청</a>
+        </div>
+        <p class="target">임직원 300인 이상 기업의 CFO · 구매 임원 대상</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 13. FAQ + 최종 CTA ===== -->
+<section id="faq" class="final" aria-labelledby="faq-h">
+  <div class="wrap">
+    <h2 id="faq-h">자주 묻는 질문</h2>
+    <div class="faq">
+      <details open>
+        <summary>ERP를 바꿔야 하나요?</summary>
+        <p class="ans">아닙니다. ERP는 지출을 기록하고, 제노는 지출 이전 단계에서 판단합니다. 제노는 ERP 위에서 작동합니다.</p>
+      </details>
+      <details>
+        <summary>어떤 시스템과 연동되나요?</summary>
+        <p class="ans">ERP와 그룹웨어, 전자세금계산서를 연동합니다. 사용 중인 시스템 목록을 주시면 연동 방식과 범위를 확인해 드립니다.</p>
+      </details>
+      <details>
+        <summary>거래하던 공급사는 계속 쓸 수 있나요?</summary>
+        <p class="ans">그대로 쓰실 수 있습니다. 기존 공급사를 제노 안에 등록해 같은 규정과 이력 관리를 적용합니다.</p>
+      </details>
+      <details>
+        <summary>공급사 등록은 누가 하나요?</summary>
+        <p class="ans">온보딩 팀이 합니다. 거래 이력이 있는 공급사를 일괄 등록하고, 이후 신규 공급사는 요청 단계에서 추가됩니다.</p>
+      </details>
+      <details>
+        <summary>기존 계약과 단가 이력은 옮길 수 있나요?</summary>
+        <p class="ans">옮길 수 있습니다. 계약서와 과거 구매 내역을 등록하면 기준단가 판단과 갱신 관리에 바로 쓰입니다.</p>
+      </details>
+      <details>
+        <summary>구매 규정은 누가 등록하고 개정하나요?</summary>
+        <p class="ans">온보딩 팀이 규정집을 함께 검토해 등록하고, 이후 개정은 담당자가 화면에서 직접 합니다.</p>
+      </details>
+      <details>
+        <summary>AI가 구매를 알아서 해주는 건가요?</summary>
+        <p class="ans">AI는 요청 분류, 공급사와 가격 후보 제시, 낭비 진단을 맡습니다. 검토와 승인, 최종 결정은 담당자가 합니다.</p>
+      </details>
+      <details>
+        <summary>비용은 어떻게 책정되나요?</summary>
+        <p class="ans">기본 이용료와, 제노를 통해 처리한 거래액에 연동되는 요금으로 구성됩니다. 거래액이 커질수록 적용 요율은 낮아집니다. AI 기능은 도입 첫해 무료입니다. 귀사 지출 규모 기준 견적은 진단 후 안내해 드립니다.</p>
+      </details>
+      <details>
+        <summary>도입까지 얼마나 걸리나요?</summary>
+        <p class="ans">지출 분석부터 부서 단위 적용까지 규모에 따라 4~8주입니다. 세팅은 제노 온보딩 팀이 함께 진행합니다.</p>
+      </details>
+    </div>
+
+    <h2 style="margin-top:68px">30분이면, 귀사의 규정이 시스템 규칙이 되는 과정을 보실 수 있습니다</h2>
+    <div class="cta-row">
+      <a class="cta" href="https://salesmap.kr/web-form/802cf350-4a6e-4b2e-9374-75e2045318d7">비용절감 진단 신청</a>
+      <a class="cta sec" href="https://salesmap.kr/web-form/977ae222-c6ab-4073-9849-591af0775adc">데모 받기</a>
+    </div>
+    <p class="target">임직원 300인 이상 기업의 CFO · 구매 임원 대상</p>
+  </div>
+</section>
+
+</Base>
+
+<script>
+  (function () {
+    'use strict';
+
+    /* 구매 6단계 탭 */
+    var tabs = [].slice.call(document.querySelectorAll('.tab'));
+    var tabPanels = [].slice.call(document.querySelectorAll('.panel'));
+    function showStep(step) {
+      tabs.forEach(function (t) {
+        var on = t.dataset.step === step;
+        t.classList.toggle('is-on', on);
+        t.setAttribute('aria-selected', on ? 'true' : 'false');
+      });
+      tabPanels.forEach(function (p) {
+        var on = p.dataset.step === step;
+        p.classList.toggle('is-on', on);
+        p.hidden = !on;
+      });
+    }
+    tabs.forEach(function (t, idx) {
+      t.addEventListener('click', function () { showStep(t.dataset.step); });
+      t.addEventListener('keydown', function (e) {
+        var next = null;
+        if (e.key === 'ArrowRight') next = tabs[(idx + 1) % tabs.length];
+        if (e.key === 'ArrowLeft') next = tabs[(idx - 1 + tabs.length) % tabs.length];
+        if (next) { e.preventDefault(); next.focus(); showStep(next.dataset.step); }
+      });
+    });
+
+    /* Impact Simulator */
+    var R = ['r1', 'r2', 'r3'].map(function (id) { return document.getElementById(id); });
+    if (!R[0]) return;
+    function fmt(n) { return n.toLocaleString('ko-KR'); }
+    function calc() {
+      var rev = +R[0].value, mg = +R[1].value, ind = +R[2].value;
+      var save = ind * 0.142, op = rev * mg / 100;
+      document.getElementById('v1').textContent = fmt(rev);
+      document.getElementById('v2').textContent = mg.toFixed(1);
+      document.getElementById('v3').textContent = fmt(ind);
+      document.getElementById('save').textContent = save.toFixed(1);
+      document.getElementById('op1').textContent = fmt(Math.round(op * 10) / 10) + '억';
+      document.getElementById('op2').textContent = fmt(Math.round((op + save) * 10) / 10) + '억';
+    }
+    R.forEach(function (r) { r.addEventListener('input', calc); });
+    calc();
+  })();
+</script>

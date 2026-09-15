@@ -1,0 +1,34 @@
+---
+import { FAMILY_SITES, CTA } from '../data/nav';
+---
+
+<footer class="foot">
+  <div class="wrap">
+    <div>
+      <p class="co">(주)캐스팅엔</p>
+      <dl>
+        <dt>대표이사.</dt><dd>최준혁</dd>
+        <dt>사업자등록번호.</dt><dd>423-86-00075</dd>
+        <dt>통신판매신고.</dt><dd>제 2019-인천부평-1343</dd>
+        <dt>E-mail.</dt><dd><a href="mailto:zeno@castingn.com">zeno@castingn.com</a></dd>
+        <dt>고객센터.</dt><dd><a href="tel:16442653">1644-2653</a></dd>
+        <dt>FAX.</dt><dd>070-4032-2523</dd>
+      </dl>
+      <p class="addr"><strong>주소.</strong> [서울지점] 서울시 마포구 공덕동 467, 롯데캐슬프레지던트 101동 1902호(캐스팅엔) / [본점] 인천광역시 부평구 대정로 66, 4층 408호(부평동, 다운타운일레븐)</p>
+    </div>
+    <div class="family" id="family">
+      <button class="family-btn" type="button" aria-expanded="false">Family Site
+        <svg width="10" height="6" viewBox="0 0 10 6" fill="none" aria-hidden="true"><path d="M1 5l4-4 4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+      </button>
+      <div class="family-list">
+        {FAMILY_SITES.map((f) => <a href={f.href}>{f.label}</a>)}
+      </div>
+    </div>
+    <p class="cr" style="grid-column:1/-1">
+      <span>Copyright &copy; CastingN. All Rights Reserved.</span>
+      <a href="/about">회사소개</a>
+      <a href="/resource/report">벤치마크 리포트</a>
+      <a href={CTA.login}>로그인</a>
+    </p>
+  </div>
+</footer>
