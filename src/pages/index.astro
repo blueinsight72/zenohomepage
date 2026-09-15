@@ -44,7 +44,6 @@ const keywords =
   <div class="wrap">
     <span><b>110+</b> 도입 기업</span>
     <span><b>7조 원+</b> 누적 거래 데이터</span>
-    <span><b>14.2%</b> 간접구매비 절감(도입고객 실측 최대치)</span>
     <span>카카오벤처스 · 알토스벤처스 · 신한금융그룹 투자</span>
   </div>
 </div>
@@ -454,7 +453,12 @@ const keywords =
           <input type="range" id="r3" min="50" max="4000" step="10" value="300" aria-label="간접구매 규모 (억원)" />
           <div class="scale"><span>50억</span><span>4,000억</span></div>
         </div>
-        <p class="simnote">산출 기준 — 금융그룹 계열사 도입 사례의 간접구매비 절감률 14.2%를 적용한 계산값입니다. 실제 결과는 지출 구성과 계약 조건에 따라 달라집니다.</p>
+        <div class="field">
+          <div class="row"><label for="r4">적용할 절감률 <span class="u">가정값</span></label><span><b id="v4">5.0</b><span class="u">%</span></span></div>
+          <input type="range" id="r4" min="1" max="20" step="0.5" value="5" aria-label="적용할 절감률 (%, 가정값)" />
+          <div class="scale"><span>1%</span><span>20%</span></div>
+        </div>
+        <p class="simnote">산출 기준 — 위에서 설정하신 절감률을 간접구매 규모에 적용한 계산값입니다. 제노는 특정 절감률을 보장하지 않으며, 실제 결과는 지출 구성과 계약 조건에 따라 달라집니다. 귀사 지출 데이터 기준 절감 여지는 진단에서 확인해 드립니다.</p>
       </div>
       <div class="simout">
         <span class="simlab">예상 절감액</span>
@@ -594,20 +598,21 @@ const keywords =
       });
     });
 
-    /* Impact Simulator — 금융그룹 계열사 도입 사례의 간접구매비 절감률 */
-    var RATE = 0.142;
-    var R = ['r1', 'r2', 'r3'].map(function (id) { return document.getElementById(id); });
+    /* Impact Simulator — 절감률은 방문자가 설정하는 가정값입니다.
+       당사가 특정 절감률을 주장하지 않기 위해 상수로 두지 않습니다. */
+    var R = ['r1', 'r2', 'r3', 'r4'].map(function (id) { return document.getElementById(id); });
     if (!R[0]) return;
     function fmt(n) { return Number(n).toLocaleString('ko-KR'); }
     function one(n) { return Math.round(n * 10) / 10; }
     function calc() {
-      var rev = +R[0].value, mg = +R[1].value, ind = +R[2].value;
+      var rev = +R[0].value, mg = +R[1].value, ind = +R[2].value, rate = +R[3].value / 100;
       // 간접구매 규모가 매출을 넘는 입력은 성립하지 않습니다.
       if (ind > rev) { ind = rev; R[2].value = ind; }
-      var save = ind * RATE, op = rev * mg / 100, op2 = op + save;
+      var save = ind * rate, op = rev * mg / 100, op2 = op + save;
       document.getElementById('v1').textContent = fmt(rev);
       document.getElementById('v2').textContent = mg.toFixed(1);
       document.getElementById('v3').textContent = fmt(ind);
+      document.getElementById('v4').textContent = (rate * 100).toFixed(1);
       document.getElementById('save').textContent = fmt(one(save));
       document.getElementById('op1').textContent = fmt(one(op)) + '억';
       document.getElementById('op2').textContent = fmt(one(op2)) + '억';
